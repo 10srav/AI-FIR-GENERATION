@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+venv/
+.env
+
+# Backend uploads
+Backend/uploads/
+
+# Node
+node_modules/
+
+# Next.js
+.next/
+out/
+
+# Misc
+.DS_Store
+*.pem
+.vercel
+*.tsbuildinfo

@@ -1,0 +1,301 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-cinzel);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-forge-950: #08080A;
+  --color-forge-900: #0F0F12;
+  --color-forge-800: #1A1A1E;
+  --color-forge-700: #252529;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+/* ═══════════════════════════════════════════════════
+   OBSIDIAN FORGE — Charcoal + Amber + Teal
+   Warm dark theme with molten amber auroras
+   ═══════════════════════════════════════════════════ */
+
+:root {
+  --radius: 0.625rem;
+  --background: #08080A;
+  --foreground: #FAFAF9;
+  --card: rgba(22, 22, 26, 0.65);
+  --card-foreground: #FAFAF9;
+  --popover: #1A1A1E;
+  --popover-foreground: #FAFAF9;
+  --primary: #F59E0B;
+  --primary-foreground: #08080A;
+  --secondary: #252529;
+  --secondary-foreground: #D4D4D8;
+  --muted: #1A1A1E;
+  --muted-foreground: #71717A;
+  --accent: #F59E0B;
+  --accent-foreground: #08080A;
+  --destructive: #EF4444;
+  --border: rgba(245, 158, 11, 0.09);
+  --input: rgba(245, 158, 11, 0.05);
+  --ring: rgba(245, 158, 11, 0.2);
+  --chart-1: #F59E0B;
+  --chart-2: #FBBF24;
+  --chart-3: #06B6D4;
+  --chart-4: #D97706;
+  --chart-5: #71717A;
+  --sidebar: #08080A;
+  --sidebar-foreground: #FAFAF9;
+  --sidebar-primary: #F59E0B;
+  --sidebar-primary-foreground: #08080A;
+  --sidebar-accent: #252529;
+  --sidebar-accent-foreground: #D4D4D8;
+  --sidebar-border: rgba(245, 158, 11, 0.06);
+  --sidebar-ring: rgba(245, 158, 11, 0.12);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    background: #08080A;
+    color: #FAFAF9;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: #08080A; }
+  ::-webkit-scrollbar-thumb { background: rgba(245, 158, 11, 0.15); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(245, 158, 11, 0.3); }
+}
+
+/* ═══════════════════════════════════════════════════
+   UTILITY CLASSES
+   ═══════════════════════════════════════════════════ */
+
+@layer utilities {
+
+  /* ── Glass Card ── */
+  .glass-forge {
+    background: rgba(16, 16, 20, 0.6);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(245, 158, 11, 0.07);
+  }
+  .glass-forge:hover {
+    background: rgba(16, 16, 20, 0.78);
+    border-color: rgba(245, 158, 11, 0.14);
+  }
+
+  /* ── Shadows ── */
+  .shadow-forge {
+    box-shadow:
+      0 0 0 1px rgba(245, 158, 11, 0.04),
+      0 4px 16px rgba(0, 0, 0, 0.45),
+      0 12px 40px rgba(0, 0, 0, 0.25);
+  }
+  .shadow-forge-hover {
+    box-shadow:
+      0 0 0 1px rgba(245, 158, 11, 0.1),
+      0 8px 24px rgba(0, 0, 0, 0.5),
+      0 24px 64px rgba(0, 0, 0, 0.3),
+      0 0 50px rgba(245, 158, 11, 0.05);
+  }
+  .shadow-ember {
+    box-shadow:
+      0 0 20px rgba(245, 158, 11, 0.12),
+      0 0 50px rgba(245, 158, 11, 0.04);
+  }
+
+  /* ── Transitions ── */
+  .transition-forge {
+    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  /* ── Gradients ── */
+  .text-ember-gradient {
+    background: linear-gradient(135deg, #FBBF24, #F59E0B, #D97706);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .bg-ember-gradient {
+    background: linear-gradient(135deg, #F59E0B, #FBBF24, #D97706);
+  }
+
+  /* ── Decorative Lines ── */
+  .ember-separator {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(245, 158, 11, 0.35), transparent);
+  }
+  .ember-underline {
+    background: linear-gradient(90deg, #F59E0B, #FBBF24, #F59E0B);
+  }
+
+  /* ── Emboss ── */
+  .ember-emboss {
+    box-shadow:
+      inset 0 1px 0 rgba(245, 158, 11, 0.05),
+      0 0 0 1px rgba(245, 158, 11, 0.04),
+      0 6px 20px rgba(0, 0, 0, 0.4),
+      0 16px 40px rgba(0, 0, 0, 0.2);
+  }
+
+  /* ── Input ── */
+  .input-forge {
+    background: rgba(12, 12, 15, 0.7);
+    border: 1px solid rgba(245, 158, 11, 0.07);
+    color: #FAFAF9;
+    transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .input-forge:focus {
+    border-color: rgba(245, 158, 11, 0.28);
+    box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.06), 0 0 30px rgba(245, 158, 11, 0.03);
+    background: rgba(12, 12, 15, 0.9);
+  }
+  .input-forge::placeholder {
+    color: rgba(113, 113, 122, 0.5);
+  }
+
+  /* ── Grid Pattern ── */
+  .bg-grid-forge {
+    background-image:
+      linear-gradient(rgba(245, 158, 11, 0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(245, 158, 11, 0.02) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  /* ── Noise Grain Texture ── */
+  .bg-noise {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 256px 256px;
+  }
+
+  /* ═══════════════════════════════════════════════════
+     ANIMATION SYSTEM — "Living Forge"
+     ═══════════════════════════════════════════════════ */
+
+  /* Aurora blobs — slow, large gradient drifts */
+  @keyframes aurora-1 {
+    0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+    25% { transform: translate(120px, 80px) scale(1.15) rotate(5deg); }
+    50% { transform: translate(50px, 160px) scale(0.9) rotate(-3deg); }
+    75% { transform: translate(-80px, 60px) scale(1.1) rotate(2deg); }
+  }
+  @keyframes aurora-2 {
+    0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+    33% { transform: translate(-100px, -80px) scale(1.2) rotate(-4deg); }
+    66% { transform: translate(80px, -40px) scale(0.85) rotate(6deg); }
+  }
+  @keyframes aurora-3 {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.12; }
+    50% { transform: translate(-50%, -50%) scale(1.4); opacity: 0.22; }
+  }
+
+  /* Floating geometric shapes */
+  @keyframes float-diamond {
+    0%, 100% { transform: translateY(0) rotate(45deg) scale(1); opacity: 0.1; }
+    50% { transform: translateY(-130px) rotate(90deg) scale(1.15); opacity: 0.25; }
+  }
+  @keyframes float-ring {
+    0%, 100% { transform: translateY(0) scale(1); opacity: 0.07; }
+    50% { transform: translateY(-100px) scale(1.25); opacity: 0.2; }
+  }
+
+  /* Scanning light line */
+  @keyframes scan-sweep {
+    0% { top: -2px; opacity: 0; }
+    2% { opacity: 0.5; }
+    98% { opacity: 0.5; }
+    100% { top: 100%; opacity: 0; }
+  }
+
+  /* Corner glow breathing */
+  @keyframes corner-glow {
+    0%, 100% { opacity: 0.12; transform: scale(1); }
+    50% { opacity: 0.35; transform: scale(1.3); }
+  }
+
+  /* Page entrance reveal */
+  @keyframes reveal-up {
+    0% { opacity: 0; transform: translateY(40px) scale(0.97); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  /* Ember border pulse */
+  @keyframes ember-border {
+    0%, 100% { border-color: rgba(245, 158, 11, 0.05); }
+    50% { border-color: rgba(245, 158, 11, 0.18); }
+  }
+
+  /* Shimmer sweep */
+  @keyframes ember-shimmer {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+  }
+
+  /* Animation classes */
+  .animate-aurora-1 { animation: aurora-1 28s ease-in-out infinite; }
+  .animate-aurora-2 { animation: aurora-2 34s ease-in-out infinite; }
+  .animate-aurora-3 { animation: aurora-3 22s ease-in-out infinite; }
+  .animate-float-diamond { animation: float-diamond 20s ease-in-out infinite; }
+  .animate-float-ring { animation: float-ring 24s ease-in-out infinite; }
+  .animate-scan-sweep { animation: scan-sweep 14s linear infinite; }
+  .animate-corner-glow { animation: corner-glow 8s ease-in-out infinite; }
+  .animate-reveal {
+    animation: reveal-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0;
+  }
+  .animate-ember-border { animation: ember-border 5s ease-in-out infinite; }
+  .animate-ember-shimmer {
+    background: linear-gradient(90deg, transparent 0%, rgba(245, 158, 11, 0.08) 25%, rgba(245, 158, 11, 0.16) 50%, rgba(245, 158, 11, 0.08) 75%, transparent 100%);
+    background-size: 200% 100%;
+    animation: ember-shimmer 3s ease-in-out infinite;
+  }
+
+  /* Stagger delays */
+  .delay-0 { animation-delay: 0s; }
+  .delay-1 { animation-delay: 1.5s; }
+  .delay-2 { animation-delay: 3s; }
+  .delay-3 { animation-delay: 4.5s; }
+  .delay-4 { animation-delay: 6s; }
+  .delay-5 { animation-delay: 7.5s; }
+  .delay-6 { animation-delay: 9s; }
+}
