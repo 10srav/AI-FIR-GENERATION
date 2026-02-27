@@ -18,12 +18,12 @@ interface ResultTabsProps {
 export function ResultTabs({ result, activeTab, setActiveTab, copied, onCopy, onPrint }: ResultTabsProps) {
   const { t } = useLanguage();
   return (
-    <div className="rounded-3xl glass-forge ember-emboss overflow-hidden">
-      <div className="flex border-b border-amber-500/10 overflow-x-auto" style={{ background: 'rgba(8,8,10,0.5)' }}>
+    <div className="rounded-3xl glass-card card-shadow overflow-hidden">
+      <div className="flex border-b border-blue-100 overflow-x-auto bg-blue-50/50">
         {([{ key: "fir" as TabType, icon: "\uD83D\uDCC4", label: t("results.tabs.fir") }, { key: "entities" as TabType, icon: "\uD83C\uDFF7\uFE0F", label: t("results.tabs.entities") }, { key: "legal" as TabType, icon: "\u2696\uFE0F", label: t("results.tabs.legalSections") }]).map((tab) => (
-          <button key={tab.key} onClick={() => setActiveTab(tab.key)} className={`flex-1 px-5 py-4 text-xs font-bold transition-forge whitespace-nowrap flex items-center justify-center gap-2 relative uppercase tracking-widest ${activeTab === tab.key ? "text-amber-400" : "text-muted-foreground hover:text-foreground hover:bg-amber-500/5"}`} style={activeTab === tab.key ? { background: 'rgba(245,158,11,0.05)' } : {}}>
+          <button key={tab.key} onClick={() => setActiveTab(tab.key)} className={`flex-1 px-5 py-4 text-xs font-bold transition-all duration-300 whitespace-nowrap flex items-center justify-center gap-2 relative uppercase tracking-widest ${activeTab === tab.key ? "text-blue-600 bg-white" : "text-muted-foreground hover:text-foreground hover:bg-blue-50"}`}>
             <span className={activeTab === tab.key ? "" : "opacity-60"}>{tab.icon}</span>{tab.label}
-            {activeTab === tab.key && <span className="absolute bottom-0 left-1/4 right-1/4 h-0.5 ember-underline rounded-full"></span>}
+            {activeTab === tab.key && <span className="absolute bottom-0 left-1/4 right-1/4 h-0.5 bg-gradient-to-r from-blue-400 to-blue-600 rounded-full"></span>}
           </button>
         ))}
       </div>

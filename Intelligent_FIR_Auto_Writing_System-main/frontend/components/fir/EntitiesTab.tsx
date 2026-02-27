@@ -11,13 +11,13 @@ export function EntitiesTab({ result }: EntitiesTabProps) {
 
   const Section = ({ title, children }: { title: string; children: React.ReactNode }) => (
     <div>
-      <p className="text-xs font-bold text-amber-400 uppercase tracking-widest mb-3 border-l-2 border-amber-500/30 pl-3">{title}</p>
+      <p className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-3 border-l-2 border-blue-400 pl-3">{title}</p>
       <div className="flex flex-wrap gap-2">{children}</div>
     </div>
   );
 
   const Tag = ({ children, mono }: { children: React.ReactNode; mono?: boolean }) => (
-    <span className={`px-3.5 py-2 text-foreground text-sm rounded-xl border border-amber-500/10 shadow-sm hover:border-amber-500/25 hover:shadow-ember transition-forge font-medium ${mono ? 'font-mono' : ''}`} style={{ background: 'rgba(245,158,11,0.04)' }}>{children}</span>
+    <span className={`px-3.5 py-2 text-foreground text-sm rounded-xl border border-blue-100 shadow-sm hover:border-blue-300 transition-all duration-300 font-medium bg-blue-50/50 ${mono ? 'font-mono' : ''}`}>{children}</span>
   );
 
   return (
@@ -34,7 +34,7 @@ export function EntitiesTab({ result }: EntitiesTabProps) {
       {result.extracted_entities?.money?.length > 0 && <Section title="Monetary Amounts">{result.extracted_entities.money.map((amount, idx) => <Tag key={idx}>{amount}</Tag>)}</Section>}
       {!hasEntities && (
         <div className="text-center py-12">
-          <div className="w-20 h-20 mx-auto mb-4 rounded-2xl border border-amber-500/10 flex items-center justify-center" style={{ background: 'rgba(245,158,11,0.03)' }}><span className="text-3xl opacity-40">&#127991;&#65039;</span></div>
+          <div className="w-20 h-20 mx-auto mb-4 rounded-2xl border border-blue-100 flex items-center justify-center bg-blue-50/50"><span className="text-3xl opacity-40">&#127991;&#65039;</span></div>
           <p className="text-sm text-muted-foreground font-medium">No specific entities were extracted from the description.</p>
         </div>
       )}
